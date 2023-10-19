@@ -127,9 +127,9 @@ function verification(column, row) {
     // Vérification de la diagonale gauche haute
     if (!win) {
         try {
-            if (connect4Value[column][row] == connect4Value[column - 1][row + 1] &&
-                connect4Value[column][row] == connect4Value[column - 2][row + 2] &&
-                connect4Value[column][row] == connect4Value[column - 3][row + 3]) {
+            if (connect4Value[column][row] == connect4Value[column + 1][row - 1] &&
+                connect4Value[column][row] == connect4Value[column + 2][row - 2] &&
+                connect4Value[column][row] == connect4Value[column + 3][row - 3]) {
                 win = true;
                 congratulationMessage();
             }
