@@ -86,19 +86,20 @@ function verification(column, row) {
             break;
         }
     }
-    // Vérification des diagonale à partir de la 4eme rangé
-    if (row < 3) {
-        win = false;
-        try {
-            if (connect4Value[column][row] == connect4Value[column - 1][row + 1] &&
-                connect4Value[column][row] == connect4Value[column - 2][row + 2] &&
-                connect4Value[column][row] == connect4Value[column - 3][row + 3]) {
-                win = true;
-                congratulationMessage();
-            }
+    // Vérification de la diagonale droite basse
+    win = false;
+    try {
+        if (connect4Value[column][row] == connect4Value[column - 1][row + 1] &&
+            connect4Value[column][row] == connect4Value[column - 2][row + 2] &&
+            connect4Value[column][row] == connect4Value[column - 3][row + 3]) {
+            win = true;
+            congratulationMessage();
         }
-        catch{
-        }
+    }
+    catch {
+    }
+    // Vérification de la diagonale gauche basse
+    if (!win) {
         try {
             if (connect4Value[column][row] == connect4Value[column + 1][row + 1] &&
                 connect4Value[column][row] == connect4Value[column + 2][row + 2] &&
@@ -107,9 +108,34 @@ function verification(column, row) {
                 congratulationMessage();
             }
         }
-        catch{
+        catch {
         }
-
+    }
+    // Vérification de la diagonale droite haute
+    if (!win) {
+        try {
+            if (connect4Value[column][row] == connect4Value[column - 1][row - 1] &&
+                connect4Value[column][row] == connect4Value[column - 2][row - 2] &&
+                connect4Value[column][row] == connect4Value[column - 3][row - 3]) {
+                win = true;
+                congratulationMessage();
+            }
+        }
+        catch {
+        }
+    }
+    // Vérification de la diagonale gauche haute
+    if (!win) {
+        try {
+            if (connect4Value[column][row] == connect4Value[column - 1][row + 1] &&
+                connect4Value[column][row] == connect4Value[column - 2][row + 2] &&
+                connect4Value[column][row] == connect4Value[column - 3][row + 3]) {
+                win = true;
+                congratulationMessage();
+            }
+        }
+        catch {
+        }
     }
 }
 
